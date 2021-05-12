@@ -1,0 +1,12 @@
+[
+    {
+      "category": "EMPEZAR",
+      "label": "Introducción",
+      "url": "./index.html"
+    },
+    {
+        "category": "EMPEZAR",
+        "label": "Crear propiedad",
+        "url": "./index.html"
+    }
+  ]

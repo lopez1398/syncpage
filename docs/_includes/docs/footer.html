@@ -1,0 +1,60 @@
+ <!-- Go to Top -->
+ <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
+ data-hs-go-to-options='{
+   "offsetTop": 700,
+   "position": {
+     "init": {
+       "right": 15
+     },
+     "show": {
+       "bottom": 15
+     },
+     "hide": {
+       "bottom": -15
+     }
+   }
+ }'>
+<i class="fas fa-angle-up"></i>
+</a>
+<!-- End Go to Top -->
+
+<!-- JS Global Compulsory  -->
+<script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS Implementing Plugins -->
+<script src="../assets/vendor/hs-header/dist/hs-header.min.js"></script>
+<script src="../assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+<script src="../assets/vendor/jquery-ui-dist/jquery-ui.min.js"></script>
+<script src="../assets/vendor/prism/prism.js"></script>
+
+<!-- JSFront -->
+<script src="../assets/js/theme.min.js"></script>
+<script src="../assets/js/hs.autocomplete-local-search.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+{% raw %}
+$(document).on('ready', function () {
+  // INITIALIZATION OF HEADER
+  // =======================================================
+  var header = new HSHeader($('#header')).init();
+
+
+  // INITIALIZATION OF GO TO
+  // =======================================================
+  $('.js-go-to').each(function () {
+    var goTo = new HSGoTo($(this)).init();
+  });
+});
+
+$(window).on('load', function () {
+  // INITIALIZATION OF AUTOCOMPLET
+  // =======================================================
+  $.HSCore.components.HSLocalSearchAutocomplete.init('.js-hs-docs-search');
+});
+{% endraw %}
+</script>
+</body>
+</html>
