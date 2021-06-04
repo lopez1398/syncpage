@@ -1,0 +1,211 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: docs
+label: "Publica una propiedad"
+---
+<div class="col-lg-10 space-top-1 space-bottom-2">
+    <div class="pl-lg-9 pl-xl-8">
+      <div class="hs-docs-content-divider">
+        <h1>Publica una propiedad</h1>
+        <p class="lead">Esta guía muestra cómo enviar una propiedad para que pueda ser publicada a los portales inmobiliarios.</p>
+      </div>
+
+      <!-- Heading -->
+      <h2 id="ejemplo-publicar" class="hs-docs-heading">
+        Publicar <a class="anchorjs-link" href="#ejemplo-publicar" aria-label="Anchor" data-anchorjs-icon="#"></a>
+      </h2>
+      <!-- End Heading -->
+
+      <p>
+        El siguiente es un ejemplo de como publicar una propiedad.
+        <br>
+      </p>
+      <pre class="rounded language-javascript">
+        <code class=" language-javascript" data-lang="javascript">
+          curl -X POST-H 'Authorization: Bearer $API_KEY' -H "Content-Type: application/json" -d
+
+          '{
+            "integrate_to":{
+                "integrations_accounts": [
+                    {
+                        "id":1
+                    },    
+                    {
+                        "id":32
+                    }
+                ]
+            },
+            "property":{
+                "pictures": [
+                    {
+                    "name": "Foto frente",
+                    "url": "https://s1.eestatic.com/2019/08/09/omicrono/Omicrono_420219253_131917138_1024x576.jpg",
+                    "order": 1,
+                    "thumb_url": "https://s1.eestatic.com/2019/08/09/omicrono/Omicrono_420219253_131917138_1024x576.jpg",
+                    "s3_bucket": "string",
+                    "description": "Picture",
+                    "type": "PIC"
+                },
+                {
+                    "name": "Foto Interior 1",
+                    "url": "https://s1.eestatic.com/2019/08/09/omicrono/Omicrono_420219253_131917138_1024x576.jpg",
+                    "order": 3,
+                    "thumb_url": "https://s1.eestatic.com/2019/08/09/omicrono/Omicrono_420219253_131917138_1024x576.jpg",
+                    "s3_bucket": "string",
+                    "description": "Picture",
+                    "type": "PIC"
+                }
+                ],
+                "prices": 
+                    {
+                        "mean_mantience": 4444444,
+                        "administration": 200000,
+                        "currency": "COP"
+                    },
+                "operation_prices": 
+                    {
+                    "price": 7200000,
+                    "operation_type": 1,
+                    "currency": "COP"
+                    },          
+                "comments": [
+                    {
+                        "comment": "H",
+                        "language": 1
+                    }
+                ],
+                "measurements": [
+                    {
+                        "measurement": 1,
+                        "unitmeasurement": 1,
+                        "value": 103
+                    },
+                    {
+                        "measurement": 3,
+                        "unitmeasurement": 1,
+                        "value": 100
+                    },
+                    {
+                        "measurement": 2,
+                        "unitmeasurement": 1,
+                        "value": 100
+                    }
+                ],
+                "code": "code125",
+                "title": "prueba titulo1234 ",
+                "description": "Hermosa propiedad ubicada en  5tas de simon con 4 habitaciones, 2 baños, hermosa vista...",
+                "zone": "zona norte",
+                "latitude": 3.42158,
+                "longitude": -76.5205 ,
+                "address": "cra 34",
+                "address_complement": "piso 4",
+                "postal_code": 4,
+                "neighborhood": "poblado",
+                "url_video": "https://www.youtube.com/watch?v=Uahwrbe0k6A",
+                "url_tour_3D": "",
+                "important": 0,
+                "rooms": 5,
+                "bathrooms": 2,
+                "half_bath": 1,
+                "parking": 3,
+                "build_year": 2010,
+                "property_type": 1,
+                "conservation": 1,
+                "destination": 1,
+                "city": 1,
+                "status": 1,
+                "amenities":[
+                    1,2,10,15,30,50
+                ]
+                }
+            }'
+          
+          {{site.console_url}}/properties
+      </code></pre>
+
+
+      <div id="atributos" class="hs-docs-content-divider">
+        <h2 class="hs-docs-heading">Atributos <a class="anchorjs-link" href="#atributos" aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+        <p>Cuando se publica una propiedad algunos de los atributos son obligatorios y otros son opcionales, a continuación encontrará la lista de todos los atributos disponibles para publicar una propiedad.</p>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 25%;">ID</th>
+            <th>Descripción</th>
+            <th style="width: 17%;">Requerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>integrate_to.integrations_accounts.id</code></td>
+            <td>Id de la cuenta a la cual desea integrar. Esta  debe haber sido creada previamente, puede consultar la documentación de como <a href="crear-cuenta-integracion.html" target="_blank">crear una o varias cuentas aquí<i class="fas fa-external-link-alt"></i></a>
+              .</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>property.pictures</code></td>
+            <td>Fotos de la propiedad, minimo 1,  maximo 30.</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.scales.yAxes.ticks.metric</code></td>
+            <td>Metric output for axes <code>(1k, 1kk, etc..)</code>.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.responsive</code></td>
+            <td>Responsive chart.</td>
+            <td><code>true</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.maintainAspectRatio</code></td>
+            <td>Maintain the original canvas aspect ratio <code>(width / height)</code> when resizing.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.legend.display</code></td>
+            <td>Legend for chart.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.tooltips.enabled</code></td>
+            <td>Enable or disable tooltips.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.tooltips.prefix</code></td>
+            <td>Prefix for tooltip text.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.tooltips.postfix</code></td>
+            <td>Postfix for tooltip text.</td>
+            <td><code>false</code></td>
+          </tr>
+
+          <tr>
+            <td><code>options.tooltips.hasIndicator</code></td>
+            <td>Add indicator for tooltip.</td>
+            <td><code>false</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+
+      
+      
+    </div>
+  </div>

@@ -6,7 +6,12 @@
     },
     {
         "category": "EMPEZAR",
-        "label": "Crear propiedad",
-        "url": "./index.html"
+        "label": "Crear API Key",
+        "url": "./crear-api-key.html"
+    },
+    {
+      "category": "EMPEZAR",
+      "label": "Publica una propiedad",
+      "url": "./publica-propiedad.html"
     }
   ]
