@@ -19,22 +19,41 @@ label: "Publica una propiedad"
       <!-- End Heading -->
 
       <p>
-        El siguiente es un ejemplo de como publicar una propiedad.
+        El siguiente es un ejemplo de como publicar una propied.ad.
         <br>
       </p>
       <pre class="rounded language-javascript">
         <code class=" language-javascript" data-lang="javascript">
-          curl -X POST-H 'Authorization: Bearer $API_KEY' -H "Content-Type: application/json" -d
+          curl -X POST-H 'Authorization: api-key $API_KEY' -H "Content-Type: application/json" -d
 
           '{
             "integrate_to":{
                 "integrations_accounts": [
                     {
-                        "id":1
+                        "id":1221,
+                        "contact_info": {
+                          "contact_name": "Fabio Gomez",
+                          "contact_emails": "desarrollo@domus.la,fabiogomez28@gmail.com",
+                          "contact_phones": "33369988-ext321,998855",
+                          "contact_cellphones": "3218544742,55477885",
+                          "whatsapp_number"  : "3218544742"
                     },    
                     {
-                        "id":32
-                    }
+                        "id":3221
+                    },
+                    {
+                      "id":3222
+                    },
+                    {
+                      "id":12333,
+                      "contact_info": {
+                        "contact_name": "Fabio Gomez",
+                        "contact_emails": "desarrollo@domus.la,fabiogomez28@gmail.com",
+                        "contact_phones": "33369988-ext321,998855",
+                        "contact_cellphones": "3218544742,55477885",
+                        "whatsapp_number"  : "3218544742"
+                  },   
+
                 ]
             },
             "property":{
@@ -97,19 +116,19 @@ label: "Publica una propiedad"
                     
                   }
 
-                ],
-                "prices": 
-                    {
-                        "mean_mantience": 4444444,
-                        "administration": 200000,
-                        "currency": "COP"
-                    },
-                "operation_prices": 
+                ],                
+                "operation_price": 
                     {
                     "price": 7200000,
                     "operation_type": 1,
                     "currency": "COP"
-                    },          
+                    },      
+                "additional_prices": 
+                {
+                    "mean_mantience": 4444444,
+                    "administration": 200000,
+                    "currency": "COP"
+                },    
                 "comments": [
                     {
                         "comment": "H",
@@ -158,10 +177,16 @@ label: "Publica una propiedad"
         </thead>
         <tbody>
           <tr>
-            <td><code>integrate_to.integrations_accounts.id</code></td>
+            <td><code>integrate_to.integrations_accounts[$i].id</code></td>
             <td>Id de la cuenta a la cual desea integrar. Esta  debe haber sido creada previamente, puede consultar la documentación de como <a href="crear-cuenta-integracion.html" target="_blank">crear una o varias cuentas aquí<i class="fas fa-external-link-alt"></i></a>.
             </td>
             <td><code>True</code></td>
+          </tr>  
+          <tr>
+            <td><code>integrate_to.integrations_accounts[$i].contact_info</code></td>
+            <td>Información de contacto, si no se envia, se usará la información que se configuró cuando se creó la cuenta.
+            </td>
+            <td><code>False</code></td>
           </tr>         
 
           <tr>
@@ -309,7 +334,70 @@ label: "Publica una propiedad"
             <td><code>property.pictures.type</code></td>
             <td>PIC = Foto, PIC_360 = Foto 360, PLANE = Foto de los planos.</td>
             <td><code>True</code></td>
+          </tr>   
+          <tr>
+            <td><code>property.additional_prices.mean_mantience</code></td>
+            <td>Promedio de gastos para servicios públicos. Este Campo puede enviarse en cero.</td>
+            <td><code>True</code></td>
           </tr>          
+          <tr>
+            <td><code>property.additional_prices.administration</code></td>
+            <td>Este Campo puede enviarse en cero.</td>
+            <td><code>True</code></td>
+          </tr>          
+          <tr>
+            <td><code>property.additional_prices.currency</code></td>
+            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.price</code></td>
+            <td></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.operation_type</code></td>
+            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipos de operación.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.currency</code></td>
+            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.comments</code></td>
+            <td></td>
+            <td><code>False</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements</code></td>
+            <td>Se debe enviar por lo menos el área lote.</td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.measurement</code></td>
+            <td><a href="{{api_url}}/measurements" target="_blank">consulte aqui los tipos de medidas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.unitmeasurement</code></td>
+            <td><a href="{{api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.value</code></td>
+            <td><a href="{{api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>property.amenities</code></td>
+            <td><a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui las características disponibles .</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          
+                
         </tbody>
       </table>
 
