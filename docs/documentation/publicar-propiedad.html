@@ -3,13 +3,13 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: docs
-label: "Publica una propiedad"
+label: "Publicar una propiedad"
 ---
 <div class="col-lg-10 space-top-1 space-bottom-2">
     <div class="pl-lg-9 pl-xl-8">
       <div class="hs-docs-content-divider">
-        <h1>Publica una propiedad</h1>
-        <p class="lead">Esta guía muestra cómo enviar una propiedad para que pueda ser publicada a los portales inmobiliarios.</p>
+        <h1>{{page.label}}</h1>
+        <p class="lead">Esta guía muestra cómo enviar una propiedad para ser publicada a los portales inmobiliarios.</p>
       </div>
 
       <!-- Heading -->
@@ -19,12 +19,12 @@ label: "Publica una propiedad"
       <!-- End Heading -->
 
       <p>
-        El siguiente es un ejemplo de como publicar una propied.ad.
+        El siguiente es un ejemplo de como publicar una propiedad.
         <br>
       </p>
       <pre class="rounded language-javascript">
         <code class=" language-javascript" data-lang="javascript">
-          curl -X POST-H 'Authorization: api-key $API_KEY' -H "Content-Type: application/json" -d
+          curl -X POST -H 'Authorization: api-key $API_KEY' -H "Content-Type: application/json" -d
 
           '{
             "integrate_to":{
@@ -39,7 +39,7 @@ label: "Publica una propiedad"
                           "whatsapp_number"  : "3218544742"
                     },    
                     {
-                        "id":3221
+                      "id":3221
                     },
                     {
                       "id":3222
@@ -58,7 +58,7 @@ label: "Publica una propiedad"
             },
             "property":{
                 "code": "code125",
-                "title": "prueba titulo1234 ",
+                "title": "Casa en venta zona norte barrio bello lindo.",
                 "description": "Hermosa propiedad ubicada en  5tas de simon con 4 habitaciones, 2 baños, hermosa vista...",                
                 "city": 1,
                 "zone": "zona norte",
@@ -206,7 +206,7 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.city</code></td>
-            <td>Ciudad de la propiedad,  <a href="{{api_url}}/countries/CO" target="_blank">consulte aqui los codigos de ciudad disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td>Ciudad de la propiedad, <a href="{{site.api_url}}/countries/CO" target="_blank">consulte aqui los codigos de ciudad disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -296,12 +296,12 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.property_type</code></td>
-            <td>Tipo de propiedad,  <a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td>Tipo de propiedad,  <a href="{{site.api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
             <td><code>property.conservation</code></td>
-            <td>Conservación,  <a href="{{api_url}}/countries/CO/conservations" target="_blank">consulte aqui las conservaciones disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
+            <td>Conservación,  <a href="{{site.api_url}}/countries/CO/conservations" target="_blank">consulte aqui las conservaciones disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -347,7 +347,7 @@ label: "Publica una propiedad"
           </tr>          
           <tr>
             <td><code>property.additional_prices.currency</code></td>
-            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -357,12 +357,12 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.operation_price.operation_type</code></td>
-            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipos de operación.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipos de operación.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
             <td><code>property.operation_price.currency</code></td>
-            <td><a href="{{api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -377,23 +377,23 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.measurements.measurement</code></td>
-            <td><a href="{{api_url}}/measurements" target="_blank">consulte aqui los tipos de medidas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/measurements" target="_blank">consulte aqui los tipos de medidas.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
             <td><code>property.measurements.unitmeasurement</code></td>
-            <td><a href="{{api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
             <td><code>property.measurements.value</code></td>
-            <td><a href="{{api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
 
           <tr>
             <td><code>property.amenities</code></td>
-            <td><a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui las características disponibles .</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><a href="{{site.api_url}}/property_types/property_type_id" target="_blank">consulte aqui las características disponibles por tipo de inmueble,</a><i class="fas fa-external-link-alt"></i></a>  Cambie el parámetro property_type_id por un  identificador válido. <a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           

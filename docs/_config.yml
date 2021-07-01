@@ -34,8 +34,8 @@ theme: minima
 plugins:
   - jekyll-feed
 
-console_url: http://localhost:8000/
-api_url: http://localhost:8000/api/
+console_url: http://apisync.apperty.co/console
+api_url: http://apisync.apperty.co/api
 
 # Exclude from processing.
 # The following items will not be processed, by default.
