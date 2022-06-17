@@ -1,17 +1,32 @@
 [
-    {
+  {
+    "category": "EMPEZAR",
+    "label": "Introducción",
+    "url": "./index.html"
+  },
+  {
       "category": "EMPEZAR",
-      "label": "Introducción",
-      "url": "./index.html"
-    },
-    {
-        "category": "EMPEZAR",
-        "label": "Crear API Key",
-        "url": "./crear-api-key.html"
-    },
-    {
-      "category": "EMPEZAR",
-      "label": "Publica una propiedad",
-      "url": "./publica-propiedad.html"
-    }
-  ]
+      "label": "Crear API Key",
+      "url": "./crear-api-key.html"
+  },    
+  {
+    "category": "EMPEZAR",
+    "label": "Publicar una propiedad",
+    "url": "./publicar-propiedad.html"
+  },
+  {
+    "category": "EMPEZAR",
+    "label": "Crear cuentas de integración ",
+    "url": "./crear-cuenta-integracion.html"
+  },
+  {
+    "category": "EMPEZAR",
+    "label": "Actualizar una propiedad",
+    "url": "./actualizar-propiedad.html"
+  },
+  {
+    "category": "EMPEZAR",
+    "label": "Despublicar una propiedad",
+    "url": "./despublicar-propiedad.html"
+  }
+]

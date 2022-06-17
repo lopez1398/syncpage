@@ -3,13 +3,13 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: docs
-label: "Publica una propiedad"
+label: "Publicar una propiedad"
 ---
 <div class="col-lg-10 space-top-1 space-bottom-2">
     <div class="pl-lg-9 pl-xl-8">
       <div class="hs-docs-content-divider">
-        <h1>Publica una propiedad</h1>
-        <p class="lead">Esta guía muestra cómo enviar una propiedad para que pueda ser publicada a los portales inmobiliarios.</p>
+        <h1>{{page.label}}</h1>
+        <p class="lead">Esta guía muestra cómo enviar una propiedad para ser publicada a los portales inmobiliarios.</p>
       </div>
 
       <!-- Heading -->
@@ -24,22 +24,41 @@ label: "Publica una propiedad"
       </p>
       <pre class="rounded language-javascript">
         <code class=" language-javascript" data-lang="javascript">
-          curl -X POST-H 'Authorization: Bearer $API_KEY' -H "Content-Type: application/json" -d
+          curl -X POST -H 'Authorization: api-key $API_KEY' -H "Content-Type: application/json" -d
 
           '{
             "integrate_to":{
                 "integrations_accounts": [
                     {
-                        "id":1
+                        "id":1221,
+                        "contact_info": {
+                          "contact_name": "Fabio Gomez",
+                          "contact_emails": "desarrollo@domus.la,fabiogomez28@gmail.com",
+                          "contact_phones": "33369988-ext321,998855",
+                          "contact_cellphones": "3218544742,55477885",
+                          "whatsapp_number"  : "3218544742"
                     },    
                     {
-                        "id":32
-                    }
+                      "id":3221
+                    },
+                    {
+                      "id":3222
+                    },
+                    {
+                      "id":12333,
+                      "contact_info": {
+                        "contact_name": "Fabio Gomez",
+                        "contact_emails": "desarrollo@domus.la,fabiogomez28@gmail.com",
+                        "contact_phones": "33369988-ext321,998855",
+                        "contact_cellphones": "3218544742,55477885",
+                        "whatsapp_number"  : "3218544742"
+                  },   
+
                 ]
             },
             "property":{
                 "code": "code125",
-                "title": "prueba titulo1234 ",
+                "title": "Casa en venta zona norte barrio bello lindo.",
                 "description": "Hermosa propiedad ubicada en  5tas de simon con 4 habitaciones, 2 baños, hermosa vista...",                
                 "city": 1,
                 "zone": "zona norte",
@@ -97,19 +116,19 @@ label: "Publica una propiedad"
                     
                   }
 
-                ],
-                "prices": 
-                    {
-                        "mean_mantience": 4444444,
-                        "administration": 200000,
-                        "currency": "COP"
-                    },
-                "operation_prices": 
+                ],                
+                "operation_price": 
                     {
                     "price": 7200000,
                     "operation_type": 1,
                     "currency": "COP"
-                    },          
+                    },      
+                "additional_prices": 
+                {
+                    "mean_mantience": 4444444,
+                    "administration": 200000,
+                    "currency": "COP"
+                },    
                 "comments": [
                     {
                         "comment": "H",
@@ -139,7 +158,7 @@ label: "Publica una propiedad"
                 }
             }'
           
-          {{site.console_url}}/properties
+          {{site.api_url}}/properties
       </code></pre>
 
 
@@ -158,10 +177,16 @@ label: "Publica una propiedad"
         </thead>
         <tbody>
           <tr>
-            <td><code>integrate_to.integrations_accounts.id</code></td>
+            <td><code>integrate_to.integrations_accounts[$i].id</code></td>
             <td>Id de la cuenta a la cual desea integrar. Esta  debe haber sido creada previamente, puede consultar la documentación de como <a href="crear-cuenta-integracion.html" target="_blank">crear una o varias cuentas aquí<i class="fas fa-external-link-alt"></i></a>.
             </td>
             <td><code>True</code></td>
+          </tr>  
+          <tr>
+            <td><code>integrate_to.integrations_accounts[$i].contact_info</code></td>
+            <td>Información de contacto, si no se envia, se usará la información que se configuró cuando se creó la cuenta.
+            </td>
+            <td><code>False</code></td>
           </tr>         
 
           <tr>
@@ -181,7 +206,7 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.city</code></td>
-            <td>Ciudad de la propiedad,  <a href="{{api_url}}/countries/CO" target="_blank">consulte aqui los codigos de ciudad disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td>Ciudad de la propiedad, <a href="{{site.api_url}}/countries/CO" target="_blank">consulte aqui los codigos de ciudad disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -271,12 +296,12 @@ label: "Publica una propiedad"
           </tr>
           <tr>
             <td><code>property.property_type</code></td>
-            <td>Tipo de propiedad,  <a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td>Tipo de propiedad,  <a href="{{site.api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
             <td><code>True</code></td>
           </tr>
           <tr>
             <td><code>property.conservation</code></td>
-            <td>Conservación,  <a href="{{api_url}}/countries/CO/conservations" target="_blank">consulte aqui las conservaciones disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
+            <td>Conservación,  <a href="{{site.api_url}}/countries/CO/conservations" target="_blank">consulte aqui las conservaciones disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
             <td><code>True</code></td>
           </tr>
           <tr>
@@ -309,7 +334,70 @@ label: "Publica una propiedad"
             <td><code>property.pictures.type</code></td>
             <td>PIC = Foto, PIC_360 = Foto 360, PLANE = Foto de los planos.</td>
             <td><code>True</code></td>
+          </tr>   
+          <tr>
+            <td><code>property.additional_prices.mean_mantience</code></td>
+            <td>Promedio de gastos para servicios públicos. Este Campo puede enviarse en cero.</td>
+            <td><code>True</code></td>
           </tr>          
+          <tr>
+            <td><code>property.additional_prices.administration</code></td>
+            <td>Este Campo puede enviarse en cero.</td>
+            <td><code>True</code></td>
+          </tr>          
+          <tr>
+            <td><code>property.additional_prices.currency</code></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.price</code></td>
+            <td></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.operation_type</code></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipos de operación.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.operation_price.currency</code></td>
+            <td><a href="{{site.api_url}}/currencies" target="_blank">consulte aqui los tipo de monedas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.comments</code></td>
+            <td></td>
+            <td><code>False</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements</code></td>
+            <td>Se debe enviar por lo menos el área lote.</td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.measurement</code></td>
+            <td><a href="{{site.api_url}}/measurements" target="_blank">consulte aqui los tipos de medidas.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.unitmeasurement</code></td>
+            <td><a href="{{site.api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>property.measurements.value</code></td>
+            <td><a href="{{site.api_url}}/unit_measurement" target="_blank">consulte aqui las unidades de medida.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>property.amenities</code></td>
+            <td><a href="{{site.api_url}}/property_types/property_type_id" target="_blank">consulte aqui las características disponibles por tipo de inmueble,</a><i class="fas fa-external-link-alt"></i></a>  Cambie el parámetro property_type_id por un  identificador válido. <a href="{{api_url}}/countries/CO/property_types" target="_blank">consulte aqui los tipo de propiedades disponibles.</a><i class="fas fa-external-link-alt"></i></a></td>
+            <td><code>True</code></td>
+          </tr>
+          
+                
         </tbody>
       </table>
 
