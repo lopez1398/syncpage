@@ -29,4 +29,10 @@
       "label": "Despublicar una propiedad",
       "url": "./despublicar-propiedad.html"
     }
+    ,
+    {
+      "category": "RECURSOS",
+      "label": "Localizacion",
+      "url": "./localizacion-propiedad.html"
+    }
   ]
