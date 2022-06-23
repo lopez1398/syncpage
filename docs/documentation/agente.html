@@ -35,11 +35,31 @@ label: "Insertar Agente M2"
         <p>Cuando se publica una propiedad algunos de los atributos son obligatorios y otros son opcionales, a continuación encontrará la lista de todos los atributos disponibles para crear una cuenta.</p>
       </div>
 
+
       <!-- Heading -->
       <h2 id="ejemplo-publicar" class="hs-docs-heading">
         Agregar agente <a class="anchorjs-link" href="#ejemplo-publicar" aria-label="Anchor" data-anchorjs-icon="#"></a>
       </h2>
       <!-- End Heading -->
+
+      <p>
+        El siguiente es un ejemplo de como agregar un agente la cuenta.
+        <br>
+      </p>
+      <pre class="rounded language-javascript">
+        <code class=" language-javascript" data-lang="javascript">
+          curl -X GET-H 'Authorization: Bearer $API_KEY' -H "Content-Type: application/json" -d
+          
+        '
+        {
+            "integration_account_websites":6,
+            "operation_type": 1,
+            "agent_id": 341727
+        }
+        '
+
+          {{site.api_url}}/metrocuadrado_agents/integrations_accounts
+      </code></pre>
 
       <table class="table table-bordered table-striped">
         <thead>
@@ -51,52 +71,23 @@ label: "Insertar Agente M2"
         </thead>
         <tbody>
           <tr>
-            <td><code>is_active</code></td>
-            <td>Se usa para indicar si la cuenta está activa.</td>
+            <td><code>integration_account_websites</code></td>
+            <td>El id de la cuenta, <a href="{{site.api_url}}/integration_accounts_websites" target="_blank">consulte aqui los id de las cuentas disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
             <td><code>True</code></td>
           </tr>
 
           <tr>
-            <td><code>emails</code></td>
-            <td>El o los emails se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.
+            <td><code>operation_type</code></td>
+            <td>El tipo de operacion, <a href="{{site.api_url}}/api/operation_types" target="_blank">consulte aqui los tipos de operación.</a><i class="fas fa-external-link-alt"></i>
             </td>
             <td><code>True</code></td>
           </tr>
 
           <tr>
-            <td><code>phones</code></td>
-            <td>El o los telefonos se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
+            <td><code>agent_id</code></td>
+            <td>El agent_id de metrocuadrado.</td>
             <td><code>True</code></td>
-          </tr>
-
-          <tr>
-            <td><code>cellphones</code></td>
-            <td>El o los telefonos celular se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
-            <td><code>True</code></td>
-          </tr>
-
-          <tr>
-            <td><code>whatsapp_number</code></td>
-            <td>El o los numeros de  whatsapp se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
-            <td><code>True</code></td>
-          </tr>
-
-          <tr>
-            <td><code>auth_user</code></td>
-            <td>Usuario con el que inicia sesión en el portal.</td>
-            <td><code>True, para Metrocuadrado y Fincaraiz</code></td>
-          </tr>
-
-          <tr>
-            <td><code>auth_password</code></td>
-            <td>Contraseña con el que inicia sesión en el portal.</td>
-            <td><code>True, para Metrocuadrado y Fincaraiz</code></td>
-          </tr>    
-          <tr>
-            <td><code>integration_websites</code></td>
-            <td>Id del portal, <a href="{{site.api_url}}/web_sites" target="_blank">consulte aqui los id de los portales disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
-            <td><code>True</code></td>
-          </tr>         
+          </tr>       
         </tbody>
       </table>
 
