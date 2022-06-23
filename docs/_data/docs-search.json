@@ -32,7 +32,7 @@
     ,
     {
       "category": "RECURSOS",
-      "label": "Localizacion",
-      "url": "./localizacion-propiedad.html"
+      "label": "Agente",
+      "url": "./agente.html"
     }
   ]

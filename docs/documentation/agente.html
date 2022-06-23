@@ -1,0 +1,102 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: docs
+label: "Insertar Agente M2"
+---
+<div class="col-lg-10 space-top-1 space-bottom-2">
+    <div class="pl-lg-9 pl-xl-8">
+      <div class="hs-docs-content-divider">
+        <h1>Insertar agente y actualizarlo </h1>
+        <p class="lead">Para poder publicar propiedades a metrocuadrado si desea enviar el agente primero debera agregarlo.</p>
+      </div>
+
+      <!-- Heading -->
+      <h2 id="ejemplo-publicar" class="hs-docs-heading">
+        Consultar agentes metrocuadrado <a class="anchorjs-link" href="#ejemplo-publicar" aria-label="Anchor" data-anchorjs-icon="#"></a>
+      </h2>
+      <!-- End Heading -->
+
+      <p>
+        El siguiente es un ejemplo de como consultar agente.
+        <br>
+      </p>
+      <pre class="rounded language-javascript">
+        <code class=" language-javascript" data-lang="javascript">
+          curl -X GET-H 'Authorization: Bearer $API_KEY' -H "Content-Type: application/json" -d
+          
+          {{site.api_url}}/metrocuadrado_agents/integrations_accounts/{id_cuenta}
+      </code></pre>
+
+
+      <div id="atributos" class="hs-docs-content-divider">
+        <h2 class="hs-docs-heading">Atributos <a class="anchorjs-link" href="#atributos" aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+        <p>Cuando se publica una propiedad algunos de los atributos son obligatorios y otros son opcionales, a continuación encontrará la lista de todos los atributos disponibles para crear una cuenta.</p>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 25%;">ID</th>
+            <th>Descripción</th>
+            <th style="width: 17%;">Requerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>is_active</code></td>
+            <td>Se usa para indicar si la cuenta está activa.</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>emails</code></td>
+            <td>El o los emails se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.
+            </td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>phones</code></td>
+            <td>El o los telefonos se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>cellphones</code></td>
+            <td>El o los telefonos celular se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>whatsapp_number</code></td>
+            <td>El o los numeros de  whatsapp se enviaran como datos de contacto de las propiedades si no se especifican en la publicación.</td>
+            <td><code>True</code></td>
+          </tr>
+
+          <tr>
+            <td><code>auth_user</code></td>
+            <td>Usuario con el que inicia sesión en el portal.</td>
+            <td><code>True, para Metrocuadrado y Fincaraiz</code></td>
+          </tr>
+
+          <tr>
+            <td><code>auth_password</code></td>
+            <td>Contraseña con el que inicia sesión en el portal.</td>
+            <td><code>True, para Metrocuadrado y Fincaraiz</code></td>
+          </tr>    
+          <tr>
+            <td><code>integration_websites</code></td>
+            <td>Id del portal, <a href="{{site.api_url}}/web_sites" target="_blank">consulte aqui los id de los portales disponibles.</a><i class="fas fa-external-link-alt"></i></a>.</td>
+            <td><code>True</code></td>
+          </tr>         
+        </tbody>
+      </table>
+
+      
+
+      
+      
+    </div>
+  </div>
