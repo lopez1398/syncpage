@@ -59,6 +59,7 @@ label: "Publicar una propiedad"
                 "address_complement": "piso 4",
                 "postal_code": 4,
                 "neighborhood": "poblado",
+                "stratum":4,
                 "url_video": "https://www.youtube.com/watch?v=Uahwrbe0k6A",
                 "url_tour_3D": "",
                 "important": 0,
@@ -75,6 +76,7 @@ label: "Publicar una propiedad"
                 "garage_type": 1,
                 "stove_type": 2,
                 "heater_type": 1,
+                "lifts": 2,
                 "pictures": [
                   {
                     "name": "Foto frente",
@@ -236,6 +238,11 @@ label: "Publicar una propiedad"
             <td><code>True</code></td>
           </tr>
           <tr>
+            <td><code>property.stratum</code></td>
+            <td>Estrato de la propiedad. 1-7 </td>
+            <td><code>False</code></td>
+          </tr>
+          <tr>
             <td><code>property.neighborhood</code></td>
             <td>Barrio de la propiedad. Longitud máxima = 45. </td>
             <td><code>True</code></td>
@@ -331,6 +338,11 @@ label: "Publicar una propiedad"
             <td><code>False</code></td>
           </tr>
 
+          <tr>
+            <td><code>property.lifts</code></td>
+            <td>Numero de ascensores.</td>
+            <td><code>False</code></td>
+          </tr>
           <tr>
             <td><code>property.pictures</code></td>
             <td>Fotos de la propiedad, minimo = 1,  maximo = 30.</td>
